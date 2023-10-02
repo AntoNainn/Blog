@@ -22,6 +22,13 @@ class CategorieController extends AbstractController
         ]);
     }
 
+    public function recentCategories(CategorieRepository $categorieRepository): Response
+    {
+        return $this->render('categorie/recent.html.twig', [
+            'categories' => $categorieRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'app_categorie_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

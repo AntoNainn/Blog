@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Categorie;
+use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -45,7 +46,8 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'homepage');
-+       yield MenuItem::linkToCrud('Categorie', 'fas fa-map-marker-alt', Categorie::class);
+        yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'home');
+        yield MenuItem::linkToCrud('Categorie', 'fas fa-map-marker-alt', Categorie::class);
+        yield MenuItem::linkToCrud('Article', 'fas fa-map-marker-alt', Article::class);
     }
 }
