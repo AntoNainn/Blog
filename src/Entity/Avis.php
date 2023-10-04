@@ -21,7 +21,7 @@ class Avis
 
     #[ORM\ManyToOne(inversedBy: 'LesAvis')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Utilisateur $utilisateur = null;
+    private ?User $utilisateur = null;
 
     #[ORM\ManyToOne(inversedBy: 'AvisArticle')]
     #[ORM\JoinColumn(nullable: false)]
@@ -56,12 +56,12 @@ class Avis
         return $this;
     }
 
-    public function getUtilisateur(): ?Utilisateur
+    public function getUtilisateur(): ?User
     {
         return $this->utilisateur;
     }
 
-    public function setUtilisateur(?Utilisateur $utilisateur): static
+    public function setUtilisateur(?User $utilisateur): static
     {
         $this->utilisateur = $utilisateur;
 

@@ -27,7 +27,7 @@ class Article
 
     #[ORM\ManyToOne(inversedBy: 'LesArticles')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Utilisateur $utilisateur = null;
+    private ?User $utilisateur = null;
 
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Avis::class)]
     private Collection $AvisArticle;
@@ -82,12 +82,12 @@ class Article
         return $this;
     }
 
-    public function getUtilisateur(): ?Utilisateur
+    public function getUtilisateur(): ?User
     {
         return $this->utilisateur;
     }
 
-    public function setUtilisateur(?Utilisateur $utilisateur): static
+    public function setUtilisateur(?User $utilisateur): static
     {
         $this->utilisateur = $utilisateur;
 
