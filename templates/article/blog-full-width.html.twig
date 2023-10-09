@@ -59,8 +59,11 @@
           </ul>
         </div>
         <div class="post-content">
-        <p>{{article.contenu}}</p>
-      <a href="blog-single.html" class="btn btn-main">Continue Reading</a>
+        <p>{{article.contenu | raw}}</p>
+        <a href="{{ path('app_article_show', {'id':article.id})}}" class="btn btn-main">read me</a>
+        {% if is_granted('EDIT', article) %}
+          <a href="{{ path('app_article_edit', {'id':article.id})}}" class="btn btn-main">edit</a>
+        {% endif %}
   </div>
 </div>
 {% endfor %}

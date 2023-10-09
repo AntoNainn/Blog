@@ -7,21 +7,26 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
+    #[Groups(['article'])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Groups(['article'])]
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
 
+    #[Groups(['article'])]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $contenu = null;
 
+    #[Groups(['article'])]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 

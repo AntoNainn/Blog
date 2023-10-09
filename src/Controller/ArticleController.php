@@ -10,9 +10,12 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\Serializer\SerializerInterface;
 
 #[Route('/article')]
 class ArticleController extends AbstractController
@@ -54,6 +57,7 @@ class ArticleController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_article_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('EDIT', subject: 'article')]
     public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
@@ -62,7 +66,7 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('article', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('article/edit.html.twig', [
@@ -128,5 +132,12 @@ class ArticleController extends AbstractController
         return $this->render('search.html.twig',[
             'form' => $form->createView()
         ]);
+    }
+
+    #[Route('/show-api/{id}', name: 'app_article_showapi', methods: ['GET'])]
+    public function showapi(Article $article, SerializerInterface $serializer): JsonResponse
+    {
+        $jsonContent = $serializer->serialize($article, 'json', ['groups' => ['article']]);
+        return new JsonResponse($jsonContent);
     }
 }
