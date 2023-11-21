@@ -3,7 +3,39 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
+<div class="page-wrapper">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-10">
+                <div class="post">
+                    <div class="post-media post-thumb">
+                        <a href="blog-single.html">
+                        <img src="{{asset("images/blog/blog-post-1.jpg")}}" alt="">
+                        </a>
+                    </div>
+                    <h3 class="post-title"><a href="blog-single.html">{{article.titre}}</a></h3>
+                    <div class="post-meta">
+                        <ul>
+                        <li>
+                        <i class="ion-calendar"></i> {{ article.date|date("m/d/Y") }}
+                        </li>
+                        <li>
+                        <i class="ion-android-people"></i> {{article.utilisateur}}
+                        </li>
+                        <li>
+                        <a href="blog-grid.html"><i class="ion-pricetags"></i>{{article.categorie}}</a>
+                        </li>
+                        </ul>
+                    </div>
+                    <p>{{article.contenu | raw}}</p>
+                    <a href="{{ path('article') }}">back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+     
+    {# <h1>Article</h1>
 
     <table class="table">
         <tbody>
@@ -24,9 +56,9 @@
                 <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
-    </table>
+    </table> #}
 
-    <a href="{{ path('article') }}">back to list</a>
+    {# <a href="{{ path('article') }}">back to list</a> #}
 
     {# <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a> #}
 

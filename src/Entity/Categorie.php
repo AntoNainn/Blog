@@ -21,6 +21,9 @@ class Categorie
     #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Article::class)]
     private Collection $UneCategorie;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->UneCategorie = new ArrayCollection();
@@ -76,5 +79,17 @@ class Categorie
     public function __toString(): string
     {
         return $this->libelle;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }

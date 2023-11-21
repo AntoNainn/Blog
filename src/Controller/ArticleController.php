@@ -86,7 +86,7 @@ class ArticleController extends AbstractController
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('categorie/{libelle}/article', name: 'app_article_categorie', methods: ['GET'])]
+    #[Route('categorie/{slug}/article', name: 'app_article_categorie', methods: ['GET'])]
     public function articlecategorie(ArticleRepository $articleRepository, Categorie $categorie): Response
     {
         return $this->render('article/blog-full-width.html.twig', [
@@ -123,7 +123,7 @@ class ArticleController extends AbstractController
             'attr' => ['placeholder' => 'Recherche...',
             'class' => 'form-control me-2' 
             ]])
-        ->add('submit', SubmitType::class,[
+        ->add('Recherche', SubmitType::class,[
             'attr' => ['class' => 'btn btn-outline-success']
         ])
         ->setMethod('GET')
