@@ -14,10 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
+    #[IsGranted("ROLE_ADMIN", message:"Vous n'êtes pas admin !")]
     public function index(): Response
     {
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(CategorieCrudController::class)->generateUrl();
+        $url = $routeBuilder->setController(UtilisateurController::class)->generateUrl();
 
         return $this->redirect($url);
 
