@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Categorie;
 use App\Entity\Article;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -18,7 +19,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(UtilisateurController::class)->generateUrl();
+        $url = $routeBuilder->setController(CategorieCrudController::class)->generateUrl();
 
         return $this->redirect($url);
 
@@ -50,5 +51,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'home');
         yield MenuItem::linkToCrud('Categorie', 'fas fa-map-marker-alt', Categorie::class);
         yield MenuItem::linkToCrud('Article', 'fas fa-map-marker-alt', Article::class);
+        yield MenuItem::linkToCrud('User', 'fas fa-map-marker-alt', User::class);
     }
 }

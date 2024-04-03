@@ -24,8 +24,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="block">
-          <h1>Blog Full Width</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, ex!</p>
+          <h1>Les news de l'agriculture !</h1>
         </div>
       </div>
     </div>
@@ -39,11 +38,11 @@
 			<div class="col-lg-10">
 {% for article in articles %}
 				<div class="post">
-          <div class="post-media post-thumb">
+          {# <div class="post-media post-thumb">
             <a href="blog-single.html">
               <img src="{{asset("images/blog/blog-post-1.jpg")}}" alt="">
             </a>
-          </div>
+          </div> #}
         <h3 class="post-title"><a href="blog-single.html">{{article.titre}}</a></h3>
         <div class="post-meta">
           <ul>
@@ -60,7 +59,7 @@
         </div>
         <div class="post-content">
         <p>{{article.contenu | raw}}</p>
-        <a href="{{ path('app_article_show', {'id':article.id})}}" class="btn btn-main">read me</a>
+        <a href="{{ path('app_article_show', {'id':article.id})}}" class="btn btn-main">Détail</a>
         {% if is_granted('EDIT', article) %}
           <a href="{{ path('app_article_edit', {'id':article.id})}}" class="btn btn-main">edit</a>
         {% endif %}
