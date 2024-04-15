@@ -552,7 +552,7 @@ input[type=tel]:focus {
   right: 0;
   width: 100%;
   height: 100%;
-  background: #1d192c;
+  /* background: #1d192c; */
   opacity: 0.8;
 }
 
@@ -979,7 +979,7 @@ ul.dropdown-menu li {
 }
 
 .feature {
-  background: url("../img/featue-bg.jpg");
+  background: url("../images/back-jd.png");
   background-position: 50% 94px;
   display: block;
   position: relative;

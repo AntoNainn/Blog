@@ -116,15 +116,15 @@ class ArticleController extends AbstractController
     public function recherche(ArticleRepository $articleRepository): Response
     {
         $form = $this->createFormBuilder(null, [
-            'attr' => ['class' => 'd-flex']
+             'attr' => ['class' => 'input-group']
         ])
         ->setAction($this->generateUrl('app_article_result'))
         ->add('value',TextType::class, ['label'=>false,
             'attr' => ['placeholder' => 'Recherche...',
-            'class' => 'form-control me-2' 
+            'class' => 'form-control rounded' 
             ]])
         ->add('Recherche', SubmitType::class,[
-            'attr' => ['class' => 'btn btn-outline-success']
+            'attr' => ['class' => 'btn btn-success btn-rounded',]
         ])
         ->setMethod('GET')
         ->getForm();
