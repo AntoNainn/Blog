@@ -820,10 +820,11 @@ ul.dropdown-menu li {
   }
 }
 .slider {
-  background: url("../images/test-background.jpg") no-repeat;
+  background: url("../images/Silo_SCAEL_de_Brou_DJI_0393.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  background-position: 10% 0%;
+  background-position: 50% 100%;
+  /* width: 100rem; */
   padding: 200px 0;
   position: relative;
 }
@@ -999,7 +1000,7 @@ ul.dropdown-menu li {
   margin-bottom: 30px;
 }
 .feature p {
-  color: #8d8f92;
+  color: black;
   margin-bottom: 20px;
 }
 .feature .btn-view-works {
@@ -2080,14 +2081,14 @@ ul.dropdown-menu li {
 }
 
 .bg-1 {
-  background-image: url("../images/call-to-action-bg.jpg");
+  background-image: url("../images/4HNIMW1M1_web.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .bg-2 {
-  background: url("../images/featue-bg.jpg");
+  background: url("../images/filieres_scael.jpg");
   background-size: cover;
   background-attachment: fixed;
 }

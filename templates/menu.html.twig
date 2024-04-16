@@ -27,12 +27,12 @@
         					</li>
 							{# <li class="nav-item"><a class="nav-link" href="{{ path('app_utilisateur_index')}}">Utilisateur</a></li> #}
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle"  href="{{ path('app_categorie_index')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
+								<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
 								<ul class="dropdown-menu">
 									{{ render(controller('App\\Controller\\CategorieController::recentCategories')) }}
 								</ul>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="{{ path('app_avis_index')}}">Avis</a></li>
+							{# <li class="nav-item"><a class="nav-link" href="{{ path('app_avis_index')}}">Avis</a></li> #}
 							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 								{% if is_granted("ROLE_ADMIN") %}
 									<li class="nav-item"><a class="nav-link" href="{{ path('admin')}}">admin dashboard</a></li>
