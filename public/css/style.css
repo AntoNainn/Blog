@@ -820,7 +820,7 @@ ul.dropdown-menu li {
   }
 }
 .slider {
-  background: url("../images/background.jpg") no-repeat;
+  background: url("../images/test-background.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: 10% 0%;
@@ -833,12 +833,12 @@ ul.dropdown-menu li {
   }
 }
 .slider .block {
-  color: #E3E3E4;
+  color: white;
   text-align: center;
 }
 .slider .block h1 {
   font-weight: 100;
-  font-size: 45px;
+  font-size: 85px;
   line-height: 60px;
   letter-spacing: 10px;
   padding-bottom: 15px;

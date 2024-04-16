@@ -3,9 +3,20 @@
 {% block title %}New Article{% endblock %}
 
 {% block body %}
-    <h1>Create new Article</h1>
 
+{# <div class="card" style="width: 75rem;"> #}
+<div class="d-flex justify-content-center">
+<div class="card" style="width: 75rem;">
+<div class="card-body">
+<h5 class="card-header">Nouvel article</h5>
     {{ include('article/_form.html.twig') }}
+<a href="{{ path('article') }}">back to list</a>
+</div>
+</div>
+</div>
 
-    <a href="{{ path('article') }}">back to list</a>
+
+
+
+    
 {% endblock %}
