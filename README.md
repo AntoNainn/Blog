@@ -11,7 +11,7 @@ symfony version : 6.3.4
 
 bdd : MariaDB 10.5.19
 
-Composer est requie pour l'installation.
+Composer est requis pour l'installation.
 
 Un dump de la base de données est fournie dans le git. 
 Nom du fichier : sauvegarde_BLOG.sql
